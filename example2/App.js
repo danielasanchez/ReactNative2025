@@ -7,9 +7,13 @@ export default function App() {
   const [cargado, setCargado]=useState(false);
 
   useEffect(()=>{
-    setTimeout(()=>{
-      setCargado(true)
-    },5000)
+    //la funcion se ejecuta despues de 5 segundos
+    //cambiando el state cargado a true
+    const timer = setTimeout(()=>{
+                    setCargado(true)
+                  },5000)
+             
+    return ()=>clearTimeout(timer)
   },[]);
 
   return (
